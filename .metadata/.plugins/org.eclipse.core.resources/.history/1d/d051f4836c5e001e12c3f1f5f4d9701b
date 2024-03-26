@@ -1,0 +1,36 @@
+package com.alert;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demoalert {
+	
+	public static void main(String[] args) {
+		
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://demo.automationtesting.in/Alerts.html");
+		driver.manage().window().maximize();
+		WebElement alert= driver.findElement(By.xpath("//a[@class=\"analystic\"]"));
+		alert.click();
+		WebElement alerts= driver.findElement(By.xpath("//button[contains(text(),'click the button to display an  alert box')]"));
+		alert.click();
+		Alert obj=driver.switchTo().alert();
+		obj.getText();
+		obj.accept();
+		
+		
+		WebElement alert1= driver.findElement(By.xpath("//a[contains(text(),'Alert with OK & Cancel')]"));
+		alert1.click();
+		WebElement alert2=driver.findElement(By.xpath("//button[contains(text(),'click the button to display a confirm box ')]"));
+		alert2.click();
+		Alert obj1=driver.switchTo().alert();
+		obj1.getText();
+		obj1.accept();
+		
+	}
+
+}
